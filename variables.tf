@@ -36,7 +36,7 @@ variable "storage_mb" {
   default     = ""
 }
 
-variable "values" {
+variable "mysql_server_version" {
   description = "(Required) Specifies the version of MySQL to use. Valid values are 5.6, 5.7, and 8.0"
   type        = string 
   default     = ""
@@ -57,35 +57,35 @@ variable "backup_retention_days" {
 variable "geo_redundant_backup_enabled" {
   description = "(Optional) Turn Geo-redundant server backups on/off."
   type        = string 
-  default     = ""
+  default     = "false"
 }
 
 variable "infrastructure_encryption_enabled" {
   description = "(Optional) Whether or not infrastructure is encrypted for this server."
   type        = string 
-  default     = ""
+  default     = "false"
 }
 
 variable "public_network_access_enabled" {
   description = "(Optional) Whether or not public network access is allowed for this server. Defaults to true."
   type        = string 
-  default     = ""
+  default     = "true"
 }
 
 variable "ssl_enforcement_enabled" {
   description = "(Required) Specifies if SSL should be enforced on connections."
   type        = string 
-  default     = ""
+  default     = "true"
 }
 
 variable "ssl_minimal_tls_version_enforced" {
   description = "(Optional) The minimum TLS version to support on the sever"
   type        = string 
-  default     = ""
+  default     = "TLS1_2"
 }
 
 variable "tags" {
   description = "(Optional) A mapping of tags to assign to the resource."
-  type        = string 
-  default     = ""
+  type        = list(map(string))
+  default     = []
 }
