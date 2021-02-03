@@ -12,6 +12,12 @@ variable "location" {
   default     = ""
 }
 
+variable "mysql_server_name" {
+  description = "(Resuired) Specifies the name of the MySQL Server"
+  type        = string
+  default     = ""
+}
+
 variable "administrator_login" {
   description = "(Optional) The Administrator Login for the MySQL Server."
   type        = string 
@@ -45,7 +51,7 @@ variable "mysql_server_version" {
 variable "auto_grow_enabled" {
   description = "(Optional) Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only."
   type        = string 
-  default     = ""
+  default     = "true"
 }
 
 variable "backup_retention_days" {
@@ -86,6 +92,5 @@ variable "ssl_minimal_tls_version_enforced" {
 
 variable "tags" {
   description = "(Optional) A mapping of tags to assign to the resource."
-  type        = list(map(string))
-  default     = []
+  type        = map(string)
 }
